@@ -47,9 +47,10 @@ public class CustomerOrderTest {
 	// Add an item to the order and reduce its stock. Verify that the inventory count is updated correctly.
 
     @Test
-	public void testLowStockAlert() {
-	    inventory.updateStock("Garlic Bread", 13);  // Only 2 left after this
-	    assertTrue(inventory.isLowStock("Garlic Bread"));
+	public void testInventoryUpdate() {
+	    order.addItem("Pepperoni Pizza", 12.50);
+	    inventory.updateStock("Pepperoni Pizza", 1);
+	    assertEquals(9, inventory.getItemStock("Pepperoni Pizza"));
 	}
 
 	// ToDo: Test low stock alert
